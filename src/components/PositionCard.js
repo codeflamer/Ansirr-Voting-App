@@ -11,7 +11,7 @@ const PositionCard = ({candidates, position,positionId}) => {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-7">
               {
                   candidates.map((candidate)=>(
-                    <div key={candidate.id} className="p-2 flex flex-col items-center cursor-pointer hover:shadow-md m-0 pb-4">
+                    <div key={candidate._id} className="p-2 flex flex-col items-center cursor-pointer hover:shadow-md m-0 pb-4">
                         <p className='text-sm mb-4 lg:text-md'>{candidate.name}</p>
                         <img 
                                 className='rounded-full h-20 w-20'
@@ -26,8 +26,8 @@ const PositionCard = ({candidates, position,positionId}) => {
                             <input type="radio" 
                                     required
                                     id={positionId}
-                                    name={position} 
-                                    value={positionId + '@' + candidate.id} 
+                                    name={position.replace(/ /g, "")} 
+                                    value={positionId + '@' + candidate._id} 
                                     className="appearance-none w-5 h-5 cursor-pointer checked:border-8 border-green-600 border-2 rounded-full"/>
                             <p className='text-sm lg:text-md'>Choose</p>
                         </div>

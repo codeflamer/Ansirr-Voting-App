@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home';
 import Result from './pages/Result';
+import Success from './pages/Success';
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
           <Routes >
             <Route exact path="/" element={<Home/>}/>
             <Route  path="/result" element={<Result/>}/>
+            <Route  path="/voted" element={<Success/>}/>
           </Routes>
         </main>
       </div>

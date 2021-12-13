@@ -11,7 +11,7 @@ const ProgressComponent = ({PositionName,candidates}) => {
 
             {
                 candidates.map((candidate)=>(
-                    <div key={candidate.id} className="flex flex-col md:flex-row md:items-center mt-4 md:px-5 ">
+                    <div key={candidate._id} className="flex flex-col md:flex-row md:items-center mt-4 md:px-5 ">
                         <div className="p-2 justify-center w-full md:w-40 flex flex-col items-center cursor-pointer m-0 pb-4 mr-4 md:mr-10">      
                             <img 
                                     className='rounded-full h-10 w-10 '
@@ -25,7 +25,7 @@ const ProgressComponent = ({PositionName,candidates}) => {
                             <p className='text-sm mt-3 lg:text-md'>{candidate.name}</p>
                         </div>
                         <div className='md:flex-1 mb-3'>
-                            <ProgressBar completed={`${candidate.votes.length}`} bgColor='rgb(5 150 105)' maxCompleted='40'/>
+                            <ProgressBar completed={`${candidate.votes.length}`} bgColor='rgb(5 150 105)' maxCompleted={40}/>
                         </div>
                     </div>
                 ))
