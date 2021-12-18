@@ -11,7 +11,7 @@ const Home = () => {
   const [error,setErrorMessage] = useState();
   const [success,setSuccessMessage] = useState();
   const [returnMsg,setReturnMsg] = useState(false);
-  const randomId = (Math.ceil(Math.random()*10)).toString();
+  const randomId = (Math.ceil(Math.random()*100)).toString();
 
   let navigate = useNavigate();
 
@@ -35,7 +35,7 @@ const Home = () => {
               ]
         }
 
-        axios.post('http://anssir-voting-api.herokuapp.com/vote', dataToPost)
+        axios.post('https://anssir-voting-api.herokuapp.com/vote', dataToPost)
         .then(function (response) {
           setSuccessMessage(response.data);
           navigate('/voted');
