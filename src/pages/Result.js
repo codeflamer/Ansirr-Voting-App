@@ -1,22 +1,16 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Loader from 'react-loader-spinner';
 import ProgressComponent from '../components/ProgressComponent';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import io from 'socket.io-client';
 
 const Result = () => {
     const [data,setData] = useState();
 
     useEffect(() => {
-        // console.log('Helllo World');
-        axios.get('https://anssir-voting-api.herokuapp.com/vote/results')
-        .then(function (response) {
-        //   console.log(response.data);
-          setData(response.data);
-        })
-        .catch(function (error) { 
-          // handle error
-          console.log(error);
+        const socket = io('https://anssir-voting-api.herokuapp.com/live', {transports: ['websocket', 'polling']});
+        socket.on('message', (message) => {
+            setData(message)
         })
     }, [])
 
